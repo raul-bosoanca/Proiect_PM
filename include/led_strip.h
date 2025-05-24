@@ -6,7 +6,7 @@
 
 #define LED_PIN 6
 
-void init_led_strip();
+void led_strip_init();
 
 void sendBit(bool bitVal);
 void sendByte(uint8_t byte);

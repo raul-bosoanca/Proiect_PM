@@ -93,6 +93,23 @@ void lcd_init() {
 
 void lcd_time_update(unsigned int time) {
     char buffer[20];
-    itoa(time, buffer, 10);
+    buffer[0] = '0';
+    if (time < 10) {
+       itoa(time, buffer + 1, 10); 
+    } else{
+        itoa(time, buffer, 10);
+    }
 	lcd_overwrite(6, 0, buffer);
+}
+
+void lcd_score_update(unsigned int score) {
+    char buffer[20];
+    itoa(score, buffer, 10);
+	lcd_overwrite(7, 1, buffer);
+}
+
+void lcd_level_update(unsigned int level) {
+    char buffer[20];
+    itoa(level, buffer, 10);
+	lcd_overwrite(13, 1, buffer);
 }

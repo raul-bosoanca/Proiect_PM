@@ -1,7 +1,7 @@
 #include <led_strip.h>
 #include <avr/interrupt.h>
 
-void init_led_strip() {
+void led_strip_init() {
     DDRD |= (1 << PD6);
     PORTD &= ~(1 << PD6); 
 }

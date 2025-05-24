@@ -6,7 +6,6 @@
 #include <stdint.h>
 #include <string.h>
 
-// #define F_CPU                                                                           16000000UL
 #define I2C_SCL_FREQ                                                                      100000UL
 #define I2C_PRESCALER                                                                            1
 #define TWBR_VALUE                           (((F_CPU / I2C_SCL_FREQ) - 16) / (2 * I2C_PRESCALER))
@@ -57,5 +56,7 @@ void lcd_set_cursor(uint8_t col, uint8_t row);
 void lcd_print(const char* str);
 void lcd_overwrite(uint8_t col, uint8_t row, const char* str);
 void lcd_time_update(unsigned int time);
+void lcd_score_update(unsigned int score);
+void lcd_level_update(unsigned int level);
 
 #endif // SCREEN_H
