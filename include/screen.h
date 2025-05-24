@@ -51,8 +51,11 @@ void send_byte(uint8_t value, uint8_t isData);
 void lcd_command(uint8_t cmd);
 void lcd_write_char(char c);
 void lcd_init();
+
+/* Logic for display upate */
 void lcd_set_cursor(uint8_t col, uint8_t row);
 void lcd_print(const char* str);
 void lcd_overwrite(uint8_t col, uint8_t row, const char* str);
+void lcd_time_update(unsigned int time);
 
 #endif // SCREEN_H

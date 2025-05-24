@@ -1,4 +1,5 @@
 #include <screen.h>
+#include <stdlib.h>
 
 /* Screen comm functions */
 
@@ -44,6 +45,8 @@ void lcd_write_char(char c) {
     send_byte(c, 1);
 }
 
+/* Logic for display upate */
+
 void lcd_set_cursor(uint8_t col, uint8_t row) {
     uint8_t addr;
     if (row == 0) {
@@ -83,7 +86,13 @@ void lcd_init() {
     _delay_ms(2);
 
     lcd_set_cursor(0, 0);
-    lcd_print("Time: 60s    LVL");
+    lcd_print("Time: 60s  Level");
     lcd_set_cursor(0, 1);
-    lcd_print("Score: 0      1 ");
+    lcd_print("Score: 0     1 ");
+}
+
+void lcd_time_update(unsigned int time) {
+    char buffer[20];
+    itoa(time, buffer, 10);
+	lcd_overwrite(6, 0, buffer);
 }
